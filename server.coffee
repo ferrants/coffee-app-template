@@ -2,21 +2,25 @@ express = require 'express'
 http = require 'http'
 assert = require 'assert'
 fs = require 'fs'
+
 file = __filename.replace('/server.coffee', '') + '/data.json'
-data = {hits: 0}
+world = {
+  data: {hits: 0}
+}
 
 fs.readFile file, 'utf8', (err, data) ->
   if err
     console.log 'Error: ' + err
     return
  
-  data = JSON.parse data
-  console.log data
+  world.data = JSON.parse data
+  console.log world.data
+
 
 write_data = () ->
   console.log "writing to file"
-  console.log data
-  fs.writeFile file, JSON.stringify(data, null, 4), (err) ->
+  console.log world.data
+  fs.writeFile file, JSON.stringify(world.data, null, 4), (err) ->
       if err
         console.log err
       else
@@ -33,9 +37,9 @@ setup_server = () ->
 
   app.get '/api', (req, res) ->
     console.log "-- someones lookin at /"
-    data.hits += 1
+    world.data.hits += 1
     write_data()
-    res.send {state: 'running', hits: data.hits}
+    res.send {state: 'running', hits: world.data.hits}
 
   port = process.env.HTTP_PORT || 8080
   app.listen port
