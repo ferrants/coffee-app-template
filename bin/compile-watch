@@ -1,2 +1,2 @@
 #!/bin/sh
-coffee -cwo public/js/ source/public/* &
+coffee -cwo public/js/ source/public/*

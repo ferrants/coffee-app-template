@@ -2,3 +2,4 @@ public/js/
 bower_components/
 node_modules/
 public/lib/
+data.json

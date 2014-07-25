@@ -2,27 +2,25 @@ express = require 'express'
 http = require 'http'
 assert = require 'assert'
 fs = require 'fs'
-file = __filename.replace('/server.coffee', '') + '/history.json'
-history = {}
+file = __filename.replace('/server.coffee', '') + '/data.json'
+data = {hits: 0}
 
 fs.readFile file, 'utf8', (err, data) ->
   if err
     console.log 'Error: ' + err
     return
  
-  history = JSON.parse data
-  console.log history
+  data = JSON.parse data
+  console.log data
 
-write_history = () ->
+write_data = () ->
   console.log "writing to file"
-  console.log history
-  fs.writeFile file, JSON.stringify(history, null, 4), (err) ->
+  console.log data
+  fs.writeFile file, JSON.stringify(data, null, 4), (err) ->
       if err
         console.log err
       else
         console.log "JSON saved to #{file}"
-
-# setInterval write_balls, 10000
 
 setup_server = () ->
 
@@ -35,7 +33,9 @@ setup_server = () ->
 
   app.get '/api', (req, res) ->
     console.log "-- someones lookin at /"
-    res.send history
+    data.hits += 1
+    write_data()
+    res.send {state: 'running', hits: data.hits}
 
   port = process.env.HTTP_PORT || 8080
   app.listen port
