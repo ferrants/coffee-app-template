@@ -20,7 +20,7 @@ describe '/ | ', () ->
 			cb()
 
 	it 'start', (cb) ->
-		get_json "/", (status, data) ->
+		get_json "/api", (status, data) ->
 			ae 200, status
 			cb()
 
