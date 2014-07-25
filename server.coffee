@@ -33,7 +33,7 @@ setup_server = () ->
   app.use app.router
   app.use express.static(__dirname + '/public')
 
-  app.get '/', (req, res) ->
+  app.get '/api', (req, res) ->
     console.log "-- someones lookin at /"
     res.send history
 

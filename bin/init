@@ -1,5 +1,6 @@
-#!/bin/sh -ex
+#!/bin/sh
 
+cp hooks/* ./.git/hooks/
 npm install
 bower install
 rm -rf public/lib
@@ -8,4 +9,4 @@ ln -s ../../bower_components/angular/ public/lib/angular
 ln -s ../../bower_components/jquery/ public/lib/jquery
 ln -s ../../bower_components/bootstrap/dist/ public/lib/bootstrap
 ln -s ../../bower_components/angular-route/ public/lib/angular-route
-
+ln -s ../../bower_components/moment/ public/lib/moment
