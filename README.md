@@ -16,3 +16,8 @@ $ ./bin/init
 ```
 $ ./bin/run
 ```
+
+### Test
+```
+$ ./bin/test
+```
