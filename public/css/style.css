@@ -1,0 +1,38 @@
+#tag_input_wrapper{
+	background: #ccc;
+	padding: 20px;
+}
+#tag_input{
+	background: #eee;
+	margin: 10px 0;
+}
+.element_description{
+	border: 1px solid #CCC;
+	margin: 12px 0;
+	padding: 12px;
+	border-radius: 3px;
+}
+.element_description.movable{
+	background-color: #e0e0ff;
+}
+.element_name_input{
+	margin: 7px;
+	width: 300px;
+}
+canvas#tag_output{
+	cursor: crosshair;
+}
+canvas#tag_output.movable{
+	cursor: move;
+}
+#template_modal .modal-dialog{
+	width: 900px;
+}
+.modal-body .thumbnail:hover{
+	cursor: pointer;
+	border-color: black;
+}
+
+.modal-body .thumbnail.selected{
+	background-color: #e0e0ff;
+}
