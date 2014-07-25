@@ -1,10 +1,18 @@
-# New App Template
-## Setup
+## New App Template
+Tired of re-doing this every time. Generic setup.
+Frameworks:
+- nodejs
+- express
+- angular
+- coffeescript on server and compiled for front-end js
+- mocha test
+
+### Setup
 ```
 $ ./bin/init
 ```
 
-# Run App
+### Run App
 ```
 $ ./bin/run
 ```
