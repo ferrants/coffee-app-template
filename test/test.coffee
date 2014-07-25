@@ -5,7 +5,7 @@ get_json = require('./helpers').get_json
 App_Runner = require('./helpers').App_Runner
 ae = assert.equal
 			
-describe '/ | ', () ->
+describe '/api | ', () ->
 
 	before (cb) ->
 		@server = new App_Runner
